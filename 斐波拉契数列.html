@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="./js/v2.6.10/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">		
+			请输入你想知道第几位斐波拉契数列的值<br />
+			<input type="text" id="" v-model="i" value="" />
+			<input type="button" v-on:click="show()" value="请点击"/>
+
+		</div>
+		<script type="text/javascript">
+			var Fa=new Array();
+			let vm=new Vue({
+				el:"#app",
+				data:{	
+					A:1,
+					B:1,
+					i:0,			
+				},
+				methods:{
+					show(){
+						Fa.push(vm.A);
+						Fa.push(vm.B);
+						 for(let x=0;x<vm.i;x++){
+							 var sum=vm.A+vm.B;
+							Fa.push(sum);
+							vm.A=vm.B;
+							vm.B=sum;
+						 }
+						alert("四边形的面积为："+Fa.slice(vm.i-1,vm.i));
+					}
+				},
+			})
+			
+		</script>
+		
+	</body>
+</html>
